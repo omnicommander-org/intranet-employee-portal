@@ -87,7 +87,7 @@ $pink: rgba(255,255,255,0.15);
                 color: $red;
             }
             &:hover {
-                color: $white;
+                color: $white !important;
                 background: $darkred;
                 .nav-icon
                 {
@@ -161,7 +161,7 @@ $pink: rgba(255,255,255,0.15);
             }
             .nav-item{
                 &:hover {
-                    color: $white;
+                    color: $white !important;
                     background: $red !important;
                     .nav-icon
                     {
