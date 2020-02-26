@@ -21,11 +21,23 @@ $pink: rgba(255,255,255,0.15);
 
 
 /* Header Nav Styles */
+.sidebar-fixed .app-header + .app-body .sidebar {
+    height: calc(100vh - 80px);
+}
+.header-fixed
+{
+    .app-body{
+        margin-top:80px;
+    }
+}
 .app-header
 {
+    flex: 0 0 80px;
+    height:80px;
+
     .navbar-brand
     {
-        width:300px;
+        width:260px;
         height:40px;
         margin-left:0px;
     }
@@ -34,8 +46,15 @@ $pink: rgba(255,255,255,0.15);
 /* Side Bar Styles */
 .sidebar
 {
-    
+    height: calc(100vh - 80px); 
     background-color:$red;
+    width:auto !important;
+    .sidebar-nav{
+        /* width:260px; */
+    }
+    .nav{
+        /* width:260px; */
+    }
     .nav-link{
         &:hover {
             color: $white;
@@ -59,7 +78,7 @@ $pink: rgba(255,255,255,0.15);
         }
     }
     
-    .nav-dropdown.open{
+    .nav-dropdown{
         background: $white;
 
         .nav-link{
@@ -95,7 +114,7 @@ $pink: rgba(255,255,255,0.15);
             .nav-item{
                 .nav-link{
                    .nav-icon{
-                       width:0;
+                       width:0rem !important;
                    } 
                 }
             }
@@ -103,6 +122,16 @@ $pink: rgba(255,255,255,0.15);
                 background: $red;
                 color: $white;
             }
+        }
+    }
+    .nav-dropdown.open{
+        background: $white;
+        color: $red;
+        .nav-dropdown-toggle{
+            color: $white !important;
+        }
+        .nav-link{
+            color: $red;
         }
     }
     .nav-title.seperator
@@ -117,4 +146,47 @@ $pink: rgba(255,255,255,0.15);
         margin-bottom:0px;
     }
 }
+.sidebar-minimized
+{
+    .sidebar{
+        .nav{
+            .nav-dropdown-items
+            {
+                background: $darkred !important;
+                .nav-item{
+                    .nav-link{
+                        padding-left:10px;
+                    }
+                }
+            }
+            .nav-item{
+                &:hover {
+                    color: $white;
+                    background: $red !important;
+                    .nav-icon
+                    {
+                        color: $white;
+                    }
+                }  
+                .nav-link{
+                    color: $white;
+                   
 
+                     
+                }
+                
+            }
+        }
+    }
+}
+
+/* Main Area Styles */
+/* .main
+{
+    margin-left:260px !important;
+} */
+
+
+.sidebar-minimized .sidebar .nav-item:hover>.nav-link {
+    background: $red;
+}

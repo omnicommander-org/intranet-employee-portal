@@ -23,6 +23,7 @@ export default {
       url: 'https://online.fuldaareacreditunion.com/servlet/SLogin?template=/c/login/sloginsc.vm',
       icon: 'fa fa-dollar',
       class: 'external',
+      target: '_blank',
     },
     {
       name: 'EZ Card',

@@ -1,1 +1,21 @@
 // Variable overrides
+$red: #86163B;
+$darkred: #6D0022;
+$white: #fff;
+$pink: rgba(255,255,255,0.15);
+
+
+$colors: (
+
+"red": $red,
+"blue": $red,
+"gray-dark": $red
+) !default;
+
+.breadcrumb-item a {
+color: var(--red) !important;
+}
+
+.sidebar-minimized .sidebar .nav-item:focus > .nav-link {
+    background: $red;
+}
