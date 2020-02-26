@@ -1,0 +1,120 @@
+// If you want to override variables do it here
+@import "variables";
+
+// Import styles
+@import "~@coreui/coreui/scss/coreui.scss";
+
+// Temp fix for reactstrap
+@import '~@coreui/coreui/scss/_dropdown-menu-right.scss';
+
+// If you want to add something do it here
+@import "custom";
+
+// ie fixes
+@import "ie-fix";
+
+$red: #86163B;
+$darkred: #6D0022;
+$white: #fff;
+$pink: rgba(255,255,255,0.15);
+
+
+
+/* Header Nav Styles */
+.app-header
+{
+    .navbar-brand
+    {
+        width:300px;
+        height:40px;
+        margin-left:0px;
+    }
+}
+
+/* Side Bar Styles */
+.sidebar
+{
+    
+    background-color:$red;
+    .nav-link{
+        &:hover {
+            color: $white;
+            background: $darkred;
+            .nav-icon
+            {
+                color: $white;
+            }
+        }
+        .nav-icon
+        {
+            color: $white;
+        }
+    }
+    .nav-link.active
+    {
+        background:$red;
+        color:$white;
+        .nav-icon{
+            color: $white;
+        }
+    }
+    
+    .nav-dropdown.open{
+        background: $white;
+
+        .nav-link{
+            color: $red;
+            .nav-icon{
+                color: $red;
+            }
+            &:hover {
+                color: $white;
+                background: $darkred;
+                .nav-icon
+                {
+                    color: $white;
+                }
+            }
+        }
+       
+        .nav-icon
+        {
+            color: $white;
+        }
+        .nav-dropdown-toggle{
+            background: $red;
+            color: $white;
+
+            .nav-icon{
+                color: $white;
+            }
+
+        }
+        .nav-dropdown-items
+        {
+            .nav-item{
+                .nav-link{
+                   .nav-icon{
+                       width:0;
+                   } 
+                }
+            }
+            .nav-link.active{
+                background: $red;
+                color: $white;
+            }
+        }
+    }
+    .nav-title.seperator
+    {
+        width:90%;
+        height:1px;
+        background: $pink;
+        padding:0px;
+        margin-left:10px;
+        margin-right:10px;
+        margin-top:0px;
+        margin-bottom:0px;
+    }
+}
+
