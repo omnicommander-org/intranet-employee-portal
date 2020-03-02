@@ -16,9 +16,21 @@
 $red: #86163B;
 $darkred: #6D0022;
 $white: #fff;
-$pink: rgba(255,255,255,0.15);
+$pink: rgba(255,255,255,0.35);
+$yellow: #db9805;
+$grey: #5b5859;
+/* Button Styles Global */
+.btn-primary
+{
+    background: $red;
+    border:1px solid $red;
 
+    &:hover {
+        background: $red;
+        color: $pink;
+    }
 
+}
 
 /* Header Nav Styles */
 .sidebar-fixed .app-header + .app-body .sidebar {
@@ -189,4 +201,13 @@ $pink: rgba(255,255,255,0.15);
 
 .sidebar-minimized .sidebar .nav-item:hover>.nav-link {
     background: $red;
+}
+
+.card-header-actions
+{
+    display:flex;
+    align-items: center;
+    .form-control{
+        margin-right:10px;
+    }
 }
