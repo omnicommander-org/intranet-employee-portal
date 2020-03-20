@@ -40,11 +40,9 @@ constructor(props)
 componentDidMount() {
   this.getDataFromDb();
   if (!this.state.intervalIsSet) {
-    let interval = setInterval(this.getDataFromDb, 10000);
+    let interval = setInterval(this.getDataFromDb, 1000);
     this.setState({ intervalIsSet: interval });
-   
   }
-  
 }
 
 // never let a process live forever
@@ -116,7 +114,6 @@ deleteFromDB = (idTodelete) => {
 // our update method that uses our backend api
 // to overwrite existing data base information
 updateDB = (idToUpdate, updateToApply) => {
-  console.log('Update Called -----: ID:' + idToUpdate + '  //  The Update: ' + updateToApply );
   let objIdToUpdate = null;
   parseInt(idToUpdate);
   this.state.data.forEach((dat) => {
@@ -128,12 +125,11 @@ updateDB = (idToUpdate, updateToApply) => {
 
   axios.post('http://localhost:3001/api/updateData', {
     id: objIdToUpdate,
-    update: { title: updateToApply },
+    update: updateToApply ,
   });
 };
 toggleModalAdd()
 {
-  console.log(this.state.modalAdd);
     this.setState({
       modalAdd: !this.state.modalAdd,  
     });

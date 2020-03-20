@@ -18,9 +18,11 @@ constructor(props)
     
     this.state = {
         editMessage: true, 
+        id: this.props.dat.id,
         title: this.props.dat.title,
         message: this.props.dat.message,
         createdAt: this.props.dat.createdAt,
+        msgread: this.props.dat.msgread,
 
     };
     this.toggleMessageEdit = this.toggleMessageEdit.bind(this);
@@ -39,6 +41,7 @@ toggleMessageEdit()
         return(
         <div>
         {this.state.editMessage ? (
+            
           <Card>
             <CardHeader>
                 <h4>{this.state.title}
@@ -46,9 +49,13 @@ toggleMessageEdit()
                         {/*eslint-disable-next-line*/}
                         <a className="card-header-action btn btn-setting" onClick={() => this.toggleMessageEdit()}><i className="icon-settings"></i></a>
                         {/*eslint-disable-next-line*/}
-                        <a className="card-header-action btn btn-minimize" onClick={() => this.props.actionCall(this.id)}><i className="icon-trash"></i></a>
+                        <a className="card-header-action btn btn-minimize" onClick={() => this.props.actionCall(this.state.id)}><i className="icon-trash"></i></a>
+                        {/* This will be part of the 'Mark as read' functionality once user accounts are added.  */}
+                        {/*eslint-disable-next-line*/}
+                        {/*  <a className="card-header-action btn btn-minimize" onClick={() => console.log(this.state.msgread)}><i className="icon-close"></i></a> */}
                     </div>
                 </h4>  
+               
             </CardHeader>
             <CardBody>
                 <div className = "messageContainer">    
@@ -77,7 +84,7 @@ toggleMessageEdit()
                     <Label htmlFor="ccnumber"><strong>Message</strong></Label>
                     <Input  type="textarea" rows="5" id="theMessage" placeholder="" defaultValue={this.state.message} onChange={(e) => this.setState({ message: e.target.value })}/>
                 </FormGroup>
-                <Button onClick={() => {this.props.updateFunctions.updateFunc(this.props.dat.id, this.state.title); this.toggleMessageEdit()}} type="submit" size="sm" color="primary">Submit</Button>
+                <Button onClick={() => {this.props.updateFunctions.updateFunc(this.state.id, {title: this.state.title, message: this.state.message}); this.toggleMessageEdit()}} type="submit" size="sm" color="primary">Submit</Button>
             </CardBody>
           </Card> 
           )}

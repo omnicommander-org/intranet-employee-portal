@@ -12,27 +12,29 @@ constructor(props)
 {
     super(props); 
     this.state = {
-        data: [],
+        data: this.props.data,
         collapse: true,
         fadeIn: true,
         timeout: 300,
         modal: false,
         deleteId: null,
-        
+        sortedArray: [],
     };
     this.toggleDeleteModal = this.toggleDeleteModal.bind(this);
     this.sortMessages = this.sortMessages.bind(this);
+    this.componenetDidMount = this.componentDidMount.bind(this);
 } 
- 
+componentDidMount()
+{
+    
+    this.setState({
+        data: this.props.data
+    });
+    
+}
 sortMessages(theSort)
 {
-    this.items = this.props.data.map((item, key) =>
-    <div>
-       <div>
-            <Message dat = {item} actionCall = {this.toggleDeleteModal} updateFunctions = {this.props}   />
-        </div>
-    </div>
-    );
+    
 }
 
 toggleDeleteModal(theId)
@@ -44,20 +46,19 @@ toggleDeleteModal(theId)
     });
 }
     render(props, actionCall) {
-        this.sortMessages('new');
-        
+        console.log(this.state.data);
         return(
         <div>
+           {this.state.data}
             <ul>
                {this.items} 
             </ul>
            {this.props.data.length <= 0
             ? 'There are no notifications'
-            : this.props.data.map((dat) => (
+            : [...this.props.data].reverse().map((dat) => (
                 
             <div key = {dat.id}>
-                
-               
+                <Message dat = {dat} actionCall = {this.toggleDeleteModal} updateFunctions = {this.props}   />
                  {/* Delete Message Modal */}
                 <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
                     <ModalHeader toggle={this.toggle}>Warning {this.state.data}</ModalHeader>

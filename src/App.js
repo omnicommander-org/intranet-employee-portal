@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
-
+import {connect} from 'react-redux';
 
 // import { renderRoutes } from 'react-router-config';
 import './App.scss';
@@ -44,5 +44,15 @@ class App extends Component {
     );
   }
 }
-
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    age:state.age
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAgeUp: () => dispatch({type: 'AGE_UP'}),
+    onAgeDown: () => dispatch({type: 'AGE_DOWN'})
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps) (App);
